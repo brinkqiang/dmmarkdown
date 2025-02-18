@@ -21,4 +21,6 @@ ADD_DEFINITIONS(-DMD4C_USE_UTF8 -DMD_VERSION_MAJOR=${MD_VERSION_MAJOR} -DMD_VERS
 
 LibImport("md4c" "src/md4c")
 
-ExeImport("tools" "md4c")
+IF (PROJECT_IS_TOP_LEVEL)
+    ExeImport("test" "md4c")
+ENDIF()
