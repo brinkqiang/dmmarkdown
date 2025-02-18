@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.21)
 
-project(MD4C C CXX)
+project(dmmarkdown C CXX)
 
 LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 INCLUDE(cmake/ModuleImport.cmake)
@@ -22,5 +22,7 @@ ADD_DEFINITIONS(-DMD4C_USE_UTF8 -DMD_VERSION_MAJOR=${MD_VERSION_MAJOR} -DMD_VERS
 LibImport("md4c" "src/md4c")
 
 IF (PROJECT_IS_TOP_LEVEL)
-    ExeImport("test" "md4c")
+    ExeImport("tools" "md4c")
+    
+    AddInstall(md2html)
 ENDIF()
